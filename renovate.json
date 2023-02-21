@@ -8,13 +8,7 @@
     {
       "matchPackageNames": ["renovate"],
       "automerge": true,
-      "separateMinorPatch": false,
-      "automergeSchedule": [
-        "after 1pm and before 3pm"
-      ],
-      "schedule": [
-        "after 1pm and before 3pm"
-      ]
+      "separateMinorPatch": false
     }
   ]
 }
