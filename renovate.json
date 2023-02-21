@@ -1,6 +1,35 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "local>unjs/renovate-config"
+  "extends": ["github>renovatebot/.github"],
+  "assignees": ["dcab"],
+  "automergeType": "pr",
+  "prCreation": "immediate",
+  "packageRules": [
+    {
+      "matchPackageNames": ["renovate"],
+      "automerge": true,
+      "separateMinorPatch": false,
+      "automergeSchedule": [
+        "after 1pm and before 3pm"
+      ],
+      "schedule": [
+        "after 1pm and before 3pm"
+      ]
+    }
+  ],
+  "regexManagers": [
+    {
+      "description": "Update Renovate",
+      "fileMatch": [
+        "^\\.pre-commit-(?:config|hooks)\\.yaml$",
+        "^README\\.md$"
+      ],
+      "matchStrings": [
+        "additional_dependencies: \\[renovate@(?<currentValue>.*?)\\]",
+        "rev: (?<currentValue>.*?)\\s"
+      ],
+      "depNameTemplate": "renovate",
+      "datasourceTemplate": "npm"
+    }
   ]
 }
